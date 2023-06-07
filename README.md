@@ -18,8 +18,8 @@ Strona: github.com/hue1337/Symulacja-ataków-dos-ddos
 
 ## Dokumentacja projektu:
 
-- Diagramy: [link](https://github.com/Hue1337/Symulacja-atak-w-dos-ddos/tree/main/doc)
-- Dokumentacja wygenerowana poprzez `pydoc`: [link]([https://github.com/Hue1337/Symulacja-atak-w-dos-ddos/tree/main/doc](https://github.com/Hue1337/Symulacja-atak-w-dos-ddos/tree/main/doc))
+- Diagramy: [link](https://github.com/Hue1337/Symulacja-atak-w-dos-ddos/tree/main/doc/UML)
+- Dokumentacja wygenerowana poprzez `pydoc`: [link](https://github.com/Hue1337/Symulacja-atak-w-dos-ddos/tree/main/doc)
 
 ## Technologie:
 

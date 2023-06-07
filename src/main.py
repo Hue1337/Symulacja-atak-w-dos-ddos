@@ -6,6 +6,7 @@ import threading
 import time
 
 def menu():
+    ''' Menu for the simulation.'''
     print("Welcome to DoS and DDoS attacks simulation.")
     print("My github: https://github.com/hue1337")
     new_settings = Settings()
@@ -38,7 +39,6 @@ Choose an option:
                 return attack, attack_id
 
             case 3:
-                print("[*] Generating statistics based on saved data ...")
                 new_settings.run_stats_generator_based_on_saved_data()
             
             case _:
@@ -49,6 +49,7 @@ Choose an option:
         
 
 def main():
+    ''' Main function of entire project.'''
     attack,  attack_id = menu()
 
     victim_server = Server('127.0.0.1', 80, attack_id)

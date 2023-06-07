@@ -17,13 +17,14 @@ class AfterStats:
         self.__data_path = os.getcwd() + '/data'
         
     def run(self, attacks_id):
+        ''' Running statistics generator based on user's choice '''
         if self.check_if_data_is_correct():
             self.read_data()
         
         if attacks_id == 1:
             self.generate_line_charts_dos()
         elif attacks_id == 2:
-            self.generate_line_charts_ddos()
+            self    .generate_line_charts_ddos()
         elif attacks_id == 3:
             self.generate_line_charts_dos_ddos()
 
@@ -60,11 +61,8 @@ class AfterStats:
         
         os.chdir(self.__home_path)
 
-    def analyze_data(self):
-        pass
-
     def check_if_data_is_correct(self):
-        '''If data exists '''
+        ''' Checking if data exists and paths are correct '''
         os.chdir(self.__home_path)
         try:
             if not os.path.exists('data'):
@@ -87,7 +85,7 @@ class AfterStats:
 
     ''' Line charts '''
     def generate_line_charts_dos(self):
-        ''' Generate line charts '''
+        ''' Generating line charts for DoS simulation attack '''
         
         ''' DoS '''
         for i in range(1, len(self.__dos)+1):
@@ -103,7 +101,7 @@ class AfterStats:
             plt.clf()
 
     def generate_line_charts_ddos(self):
-        ''' DDoS '''
+        ''' Generating line charts for DDoS simulation attack '''
         for i in range(1, len(self.__ddos)+1):
             x = []
             for counter in range(1, len(self.__ddos[i-1])+1):
@@ -118,7 +116,7 @@ class AfterStats:
             plt.clf()
 
     def generate_line_charts_dos_ddos(self):
-        ''' Generate for both attacks '''
+        ''' Generating line charts for DoS and DDoS simulation attacks '''
         self.generate_line_charts_dos()
         self.generate_line_charts_ddos()
 

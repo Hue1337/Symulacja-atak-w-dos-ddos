@@ -21,7 +21,7 @@ class Settings:
         return StatusClient(ip, port, self.__id)
 
     def run_default_attack_configuration(self):
-        ''' DoS '''
+        ''' Running default attack configuration.'''
         ip='127.0.0.1'
         port = 80
         payload="This is just a plain text for DoS."
@@ -31,6 +31,7 @@ class Settings:
         return DoS(ip, port, amount_of_requests, payload), self.__id
 
     def run_stats_generator_based_on_saved_data(self):
+        ''' Running statistics generator based on saved data.'''
         print("Choose option:\n\t[1] Generate DoS statistics.\n\t[2] Generate DDoS statistics.\n\t[3] Generate DoS & DDoS statistics.\n>", end='')
         tmp_id = int(input())
         print("[*] Generating statistics based on saved data ...")
@@ -38,10 +39,11 @@ class Settings:
         after_stats.run(tmp_id)
 
     def run_attack_configuration(self):
+        ''' Running attack configuration.'''
         ip='127.0.0.1'
         port = 80
 
-        print('Please privide the attack you want to run:\n[1] DoS\n[2] DDoS\n[3] Exit\n>')
+        print('Please privide the attack you want to run:\n[1] DoS\n[2] DDoS\n[3] Exit\n>', end='')
         self.__id = int(input())
 
         match self.__id:
@@ -49,7 +51,7 @@ class Settings:
                 ''' DoS '''
                 payload="This is just a plain text for DoS."
                 amount_of_requests = 0
-                print("Please provide amount of reauests you want to be sent at once (recommended value: 2500):\n>")
+                print("Please provide amount of reauests you want to be sent at once (recommended value: 2500):\n>", end='')
                 amount_of_requests = int(input())
 
                 return DoS(ip, port, amount_of_requests, payload), self.__id
@@ -60,11 +62,11 @@ class Settings:
                 amount_of_threads = 50
                 payload = "This is just a plain text for DDoS."
                 
-                print(f'Please provide amount of threads you want to be used (recommended value: 50):\n>')
+                print(f'Please provide amount of threads you want to be used (recommended value: 50):\n>', end='')
                 amount_of_threads = int(input())
                 
                 
-                print(f"Please provide amount of requests you want to be sent at once (recommended value:{amount_of_requests}):\n>")
+                print(f"Please provide amount of requests you want to be sent at once (recommended value:{amount_of_requests}):\n>", end='')
                 amount_of_requests = int(input())
 
 

@@ -1,7 +1,7 @@
-import time
 from client import Client
 from attack import Attack
 
+import time
 from colorama import Fore, Style
 import threading
 
@@ -20,7 +20,7 @@ class DoS(Attack):
         self.__target = str(ip+':'+str(port))     
 
     def run(self) -> None:
-        ''' Based on sending a payload '''
+        ''' Running simulation of DoS attack.'''
         server_status = threading.Thread(target=self.if_server_is_dead)
         server_status.daemon = True
         server_status.start()
@@ -42,6 +42,7 @@ class DoS(Attack):
         print(Fore.RED + "[-] The server hasn't stopped responding. Failed." + Style.RESET_ALL)
 
     def if_server_is_dead(self) -> None:
+        ''' Checking if server is responding. '''
         while True:
             try:
                 if float(self.__client.accept_payload()) == -2.0:

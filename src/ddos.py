@@ -21,7 +21,7 @@ class DDoS(Attack):
 
 
     def wave(self) -> None:
-        ''' Wave of sending a paylaod '''
+        ''' Sending a wave of requests to the server. '''
         for i in range(self.__single_client_amount_of_requests):
             self.__client.send_paylaod()
             ping = self.__client.accept_payload()
@@ -33,7 +33,7 @@ class DDoS(Attack):
 
 
     def run(self):
-        ''' Running simple simulation of DDoS attack '''
+        ''' Running simulation of DDoS attack. '''
         print(Fore.RED + '[*] The attack has started.' + Style.RESET_ALL)
         self.__client.connect_to_host()
         for i in range(self.__amount_of_threads):

@@ -1,8 +1,6 @@
 from client import Client
 
 import os
-import time
-import threading
 import matplotlib.pyplot as plt
 from matplotlib.animation import FuncAnimation
 
@@ -23,7 +21,7 @@ class StatusClient(Client):
     
 
     def save_to_file(self):
-        # print("[+] ZAPISYWANIE DO PLIKU")
+        ''' Saving data to file.'''
         if self.__type_of_attack == 1:
             file = open(f'data/dos/dos_{self.__next_id}.csv', 'w')
             for pi in self.__data:
@@ -39,6 +37,7 @@ class StatusClient(Client):
             file.close()
 
     def mapping_folders(self, attack_id):
+        ''' Mapping folders.'''
         attack_types = {
             1: "dos",
             2: "ddos"
@@ -83,6 +82,7 @@ class StatusClient(Client):
 
 
     def save_data(self):
+        ''' Saving data to file every 10 seconds.'''
         self.__counter += 1
         if self.__counter == 10:
             self.__counter = 0
@@ -111,6 +111,7 @@ class StatusClient(Client):
 
 
     def show_data(self):
+        ''' Showing data on plot.'''
         ani = FuncAnimation(self.__fig, self.stats, interval=1000, save_count=60)
         plt.xlabel('Last 30 seconds [s]')
         plt.ylabel('Ping [ms]')
@@ -121,11 +122,13 @@ class StatusClient(Client):
         #     time.sleep(1)
         
     def run(self):
+        ''' Running client.'''
         super().connect_to_host()
         self.mapping_folders(self.__type_of_attack)
         self.show_data()
     
     def collecting_ping(self) -> None:
+        ''' Collecting ping.'''
         try:
             self.__ping = float(super().accept_payload())
         except Exception as e:

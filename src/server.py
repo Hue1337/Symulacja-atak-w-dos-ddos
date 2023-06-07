@@ -41,6 +41,7 @@ class Server(ServerInterface):
         self.__type_of_attack = type_of_attack
 
     def start_new_instance(self):
+        ''' Starting new instance of the server '''
         self.__server_socket.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1)
         self.__server_socket.bind((self.__host, self.__port))
         self.__server_socket.listen(5)
@@ -91,6 +92,7 @@ class Server(ServerInterface):
 
             
     def handle_client(self):
+        ''' Handling client '''
         while True:
             try:
                 response = self.__client_socket.recv(1024).decode('utf-8')
@@ -121,6 +123,7 @@ class Server(ServerInterface):
         self.__threads.append(my_thread)
     
     def stop_all_threads(self):
+        ''' Stopping all threads '''
         for t in self.__threads:
             t.stop()
 
@@ -136,9 +139,11 @@ class Server(ServerInterface):
 
     ''' Simualtion rules '''
     def increase_amount_of__connections(self) -> None:
+        ''' Increasing amount of connections. '''
         self.__amount_of_connections += 1
 
     def increase_amount_of_paylaods(self) -> None:
+        ''' Increasing amount of payloads. '''
         self.__amuont_of_paylaods += 1
 
     def return_ping(self) -> float:
@@ -146,7 +151,7 @@ class Server(ServerInterface):
         return self.__ping
 
     def ping_manipulation_dos(self) -> None:
-        ''' Manipulation of ping during DoS attack '''
+        ''' Ping manipulation of during DoS attack '''
         while True:
             if self.__ping == -2.0:
                 break
@@ -170,7 +175,7 @@ class Server(ServerInterface):
 
 
     def ping_manipulation_ddos(self) -> None:
-        ''' Manipulation of ping during DDoS attack '''
+        ''' Ping manipulation of during DDoS attack '''
         while True:
             if self.__ping == -2.0:
                 break
@@ -201,6 +206,7 @@ class Server(ServerInterface):
         return round(temp_ping, 2)
 
     def print_current_status(self) -> None:
+        ''' Printing current status '''
         if self.__ping != -2.0:
             print(f'Current status:\n\tAmount of connections: {self.__amount_of_connections}\n\tAmount of paylaods: {self.__amuont_of_paylaods}\n\tPing: {self.__ping}ms')
 
@@ -214,5 +220,6 @@ class Server(ServerInterface):
             time.sleep(1)
 
     def disconnect_all(self):
+        ''' Disconnecting all clients '''
         for client in self.__clients_connected:
             client.close()

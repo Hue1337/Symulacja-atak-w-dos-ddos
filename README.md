@@ -1,8 +1,7 @@
 # Dokumentacja
 
-Autor: Mateusz Głuchowski
+Autor: [Mateusz Głuchowski](https://github.com/hue1337)
 
-Strona: github.com/hue1337/Symulacja-ataków-dos-ddos
 
 ## Temat projektu:
 

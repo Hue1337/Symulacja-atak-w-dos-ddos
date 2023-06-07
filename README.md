@@ -39,7 +39,22 @@ Autor: [Mateusz Głuchowski](https://github.com/hue1337)
 ## Struktura projektu:
 
 ```jsx
+.
 ├── README.md
+├── doc
+│   ├── UML
+│   │   ├── UML1.png
+│   │   └── UML2.png
+│   ├── after_statistics.html
+│   ├── attack.html
+│   ├── attack_interface.html
+│   ├── client.html
+│   ├── ddos.html
+│   ├── dos.html
+│   ├── server.html
+│   ├── server_interface.html
+│   ├── settings.html
+│   └── status.html
 └── src
     ├── after_statistics.py
     ├── attack.py
@@ -59,9 +74,11 @@ Autor: [Mateusz Głuchowski](https://github.com/hue1337)
     ├── dos.py
     ├── first_run.sh
     ├── main.py
+    ├── requirements.txt
     ├── run.sh
     ├── server.py
     ├── server_interface.py
     ├── settings.py
     └── status.py
+
 ```
